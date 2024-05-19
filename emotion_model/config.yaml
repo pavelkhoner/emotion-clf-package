@@ -1,14 +1,96 @@
-defaults:
-  - dataset: fer_dataset
-  - trainer: default_trainer
-  - model: fer_model
-  - optimizer: SGD
-  - scheduler: Cyclic
-  - callbacks: callbacks
-  - _self_
+# Package Overview
+package_name: emotion_model
 
-general:
-  seed: 42
-  save_single_batch: False
-  batch_size: 32
-  num_workers: 4
+pipeline_name: emotion_model
+pipeline_save_file: emotion_model_output_v
+
+# Data Files
+training_data_file: train.csv
+test_data_file: test.csv
+
+# Data settings
+image_size:
+  - 96
+  - 96
+
+image_reshape_params:
+  - -1
+  - 96
+  - 96
+  - 1
+
+# Model settings
+layer1:
+  class_name: keras.layers.Conv2D
+  params:
+    filters: 32
+    kernel_size:
+      - 3
+      - 3
+    activation: relu
+    input_shape:
+      - 96
+      - 96
+      - 1
+
+layer2:
+  class_name: keras.layers.Conv2D
+  params:
+    filters: 64
+    kernel_size:
+      - 3
+      - 3
+    activation: relu
+
+layer3:
+  class_name: keras.layers.MaxPooling2D
+  params:
+    pool_size:
+      - 3
+      - 3
+
+layer4:
+  class_name: keras.layers.Conv2D
+  params:
+    filters: 128
+    kernel_size:
+      - 3
+      - 3
+    activation: relu
+
+layer5:
+  class_name: keras.layers.MaxPooling2D
+  params:
+    pool_size:
+      - 2
+      - 2
+
+layer6:
+  class_name: keras.layers.Flatten
+
+layer7:
+  class_name: keras.layers.Dense
+  params:
+    units: 128
+    activation: relu
+
+layer8:
+  class_name: keras.layers.Dense
+  params:
+    units: 8
+    activation: softmax
+
+# Model compilation settings
+# optimizer: keras.optimizers.Adam
+# loss: keras.losses.SparseCategoricalCrossentropy
+# metrics:
+#   - keras.metrics.Accuracy
+
+optimizer: adam
+loss: sparse_categorical_crossentropy
+metrics:
+  - accuracy
+
+# Model fit settings
+epochs: 10
+batch_size: 32
