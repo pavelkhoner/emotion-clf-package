@@ -9,7 +9,7 @@ import emotion_model
 # Project Directories
 PACKAGE_ROOT = Path(emotion_model.__file__).resolve().parent
 ROOT = PACKAGE_ROOT.parent
-CONFIG_FILE_PATH = PACKAGE_ROOT / "config.yml"
+CONFIG_FILE_PATH = PACKAGE_ROOT / "config/config.yaml"
 DATASET_DIR = PACKAGE_ROOT / "datasets"
 TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_models"
 LOG_DIR = PACKAGE_ROOT / "logs"

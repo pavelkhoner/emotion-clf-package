@@ -4,8 +4,8 @@ from typing import Any, List
 
 import matplotlib.pyplot as plt
 import numpy as np
-import torch
-from torch.utils.data import DataLoader
+# import torch
+# from torch.utils.data import DataLoader
 
 
 def load_obj(obj_path: str, default_obj_path: str = "") -> Any:
@@ -29,22 +29,22 @@ def load_obj(obj_path: str, default_obj_path: str = "") -> Any:
     return getattr(module_obj, obj_name)
 
 
-def save_input(input_tensor: torch.Tensor, title: str, fig_path: str, index: int, mean: Any, std: Any) -> None:
-    """Show a single image."""
-    mean = np.array(mean)
-    std = np.array(std)
-    image = input_tensor.permute(1, 2, 0).numpy()
-    image = std * image + mean
-    plt.imshow(image.clip(0, 1))
-    plt.title(title)
-    fig_name = f"{index}.png"
-    plt.savefig(os.path.join(fig_path, fig_name))
+# def save_input(input_tensor: torch.Tensor, title: str, fig_path: str, index: int, mean: Any, std: Any) -> None:
+#     """Show a single image."""
+#     mean = np.array(mean)
+#     std = np.array(std)
+#     image = input_tensor.permute(1, 2, 0).numpy()
+#     image = std * image + mean
+#     plt.imshow(image.clip(0, 1))
+#     plt.title(title)
+#     fig_name = f"{index}.png"
+#     plt.savefig(os.path.join(fig_path, fig_name))
 
 
-def save_batch(
-    dataloader: DataLoader, class_names: List[str], fig_path: str, mean: List[float], std: List[float]
-) -> None:
-    """Show images for a batch."""
-    x_batch, y_batch = next(iter(dataloader))
-    for index, (x_item, y_item) in enumerate(zip(x_batch, y_batch)):
-        save_input(x_item, class_names[y_item], fig_path, index, mean, std)
+# def save_batch(
+#     dataloader: DataLoader, class_names: List[str], fig_path: str, mean: List[float], std: List[float]
+# ) -> None:
+#     """Show images for a batch."""
+#     x_batch, y_batch = next(iter(dataloader))
+#     for index, (x_item, y_item) in enumerate(zip(x_batch, y_batch)):
+#         save_input(x_item, class_names[y_item], fig_path, index, mean, std)
