@@ -44,3 +44,8 @@ weights/
 
 # Videos
 *.mp4
+
+# venv
+Include/
+Lib/
+Scripts/
