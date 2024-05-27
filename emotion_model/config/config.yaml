@@ -46,8 +46,8 @@ layer3:
   class_name: keras.layers.MaxPooling2D
   params:
     pool_size:
-      - 3
-      - 3
+      - 2
+      - 2
 
 layer4:
   class_name: keras.layers.Conv2D
