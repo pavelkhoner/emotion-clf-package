@@ -49,3 +49,4 @@ weights/
 Include/
 Lib/
 Scripts/
+pyvenv.cfg
