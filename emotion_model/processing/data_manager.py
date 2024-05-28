@@ -20,9 +20,9 @@ def image_generator(emotions):
             yield img, index
 
 
-def load_dataset(emotions, image_size):
+def load_dataset(emotions):
     X, y = [], []
-    for img, label in image_generator(DATASET_DIR, emotions, image_size):
+    for img, label in image_generator(emotions):
         X.append(img)
         y.append(label)
     X = np.array(X)

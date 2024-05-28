@@ -5,8 +5,8 @@ pipeline_name: emotion_model
 pipeline_save_file: emotion_model_output_v
 
 # Data Files
-training_data_file: train.csv
-test_data_file: test.csv
+# training_data_file: train.csv
+# test_data_file: test.csv
 
 # Data settings
 emotions:

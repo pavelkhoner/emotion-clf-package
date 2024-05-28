@@ -10,7 +10,7 @@ import emotion_model
 PACKAGE_ROOT = Path(emotion_model.__file__).resolve().parent
 ROOT = PACKAGE_ROOT.parent
 CONFIG_FILE_PATH = PACKAGE_ROOT / "config/config.yaml"
-DATASET_DIR = PACKAGE_ROOT / "datasets"
+DATASET_DIR = PACKAGE_ROOT / "dataset"
 TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_models"
 LOG_DIR = PACKAGE_ROOT / "logs"
 
@@ -21,8 +21,8 @@ class AppConfig(BaseModel):
     """
 
     package_name: str
-    training_data_file: str
-    test_data_file: str
+    # training_data_file: str
+    # test_data_file: str
     pipeline_save_file: str
 
 
