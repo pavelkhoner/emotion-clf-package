@@ -61,7 +61,7 @@ def run_training() -> None:
 
   # Предсказание вероятностей принадлежности к каждому классу на обучающем наборе
   class_ = emotion_pipe.predict(X_train)
-  pred = np.argmax(y_train_probs, axis=1)
+  pred = np.argmax(class_, axis=1)
 
   
   print(classification_report(class_, pred, target_names=emotions))
