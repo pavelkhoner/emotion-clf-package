@@ -1,17 +1,36 @@
 import typing as t
 from pathlib import Path
-
+import numpy as np
+import os
 import joblib
-import pandas as pd
+import cv2
 from sklearn.pipeline import Pipeline
 
 from emotion_model import __version__ as _version
 from emotion_model.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
 
 
-def load_dataset(*, file_name: str) -> pd.DataFrame:
-    dataframe = pd.read_csv(Path(f"{DATASET_DIR}/{file_name}"))
-    return dataframe
+def image_generator(DATASET_DIR, emotions, image_size):
+    for index, emotion in enumerate(emotions):
+        for filename in os.listdir(os.path.join(DATASET_DIR, emotion)):
+            img = cv2.imread(os.path.join(DATASET_DIR, emotion, filename))
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  # Convert to RGB
+            img = img.astype('float32') / 255.0  # Normilize
+            img = img.flatten()
+            yield img, index
+
+
+def load_dataset(DATASET_DIR):
+    emotions = ['surprise', 'neutral', 'sad', 'happy', 'anger']
+    X, y = [], []
+    image_size = (96, 96)
+    for img, label in image_generator(DATASET_DIR, emotions, image_size):
+        X.append(img)
+        y.append(label)
+    X = np.array(X)
+    y = np.array(y)
+    return X, y
+
 
 
 def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
