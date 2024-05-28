@@ -53,8 +53,8 @@ def run_training() -> None:
   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=config.nn_config.test_size, random_state=config.nn_config.random_state)
   # X_train = X_train.reshape(-1, 96, 96, 1)
   # X_test = X_test.reshape(-1, 96, 96, 1)
-  X_train = X_train.reshape(config.nn_config.image_reshape_params)
-  X_test = X_test.reshape(config.nn_config.image_reshape_params)
+  X_train = X_train.reshape(*config.nn_config.image_reshape_params)
+  X_test = X_test.reshape(*config.nn_config.image_reshape_params)
 
   emotion_pipe.fit(X_train, y_train)
 
