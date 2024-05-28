@@ -9,6 +9,13 @@ training_data_file: train.csv
 test_data_file: test.csv
 
 # Data settings
+emotions:
+  - surprise
+  - neutral
+  - sad
+  - happy
+  - anger
+
 image_size:
   - 96
   - 96

@@ -32,6 +32,7 @@ class NNConfig(BaseModel):
     training and feature engineering.
     """
 
+    emotions: List[str]
     image_size: List[int]
     image_reshape_params: List[int]
     layer1: dict
@@ -47,6 +48,8 @@ class NNConfig(BaseModel):
     metrics: List[str]
     epochs: int
     batch_size: int
+    test_size: float
+    random_state: int
 
 
 class Config(BaseModel):
