@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import List, Sequence
+from typing import List
 
 from pydantic import BaseModel
 from strictyaml import YAML, load
@@ -26,7 +26,7 @@ class AppConfig(BaseModel):
     pipeline_save_file: str
 
 
-class ModelConfig(BaseModel):
+class NNConfig(BaseModel):
     """
     All configuration relevant to model
     training and feature engineering.
@@ -53,7 +53,7 @@ class Config(BaseModel):
     """Master config object."""
 
     app_config: AppConfig
-    model_config: ModelConfig
+    nn_config: NNConfig
 
 
 def find_config_file() -> Path:
@@ -84,10 +84,28 @@ def create_and_validate_config(parsed_config: YAML = None) -> Config:
     # specify the data attribute from the strictyaml YAML type.
     _config = Config(
         app_config=AppConfig(**parsed_config.data),
-        model_config=ModelConfig(**parsed_config.data),
+        nn_config=NNConfig(**parsed_config.data),
     )
 
     return _config
 
 
 config = create_and_validate_config()
+
+config.nn_config.layer1['params']['filters'] = int(config.nn_config.layer1['params']['filters'])
+config.nn_config.layer1['params']['kernel_size'] = tuple(map(int, list(config.nn_config.layer1['params']['kernel_size'])))
+config.nn_config.layer1['params']['input_shape'] = tuple(map(int, list(config.nn_config.layer1['params']['input_shape'])))
+
+config.nn_config.layer2['params']['filters'] = int(config.nn_config.layer2['params']['filters'])
+config.nn_config.layer2['params']['kernel_size'] = tuple(map(int, list(config.nn_config.layer2['params']['kernel_size'])))
+
+config.nn_config.layer3['params']['pool_size'] = tuple(map(int, list(config.nn_config.layer3['params']['pool_size'])))
+
+config.nn_config.layer4['params']['filters'] = int(config.nn_config.layer4['params']['filters'])
+config.nn_config.layer4['params']['kernel_size'] = tuple(map(int, list(config.nn_config.layer4['params']['kernel_size'])))
+
+config.nn_config.layer5['params']['pool_size'] = tuple(map(int, list(config.nn_config.layer5['params']['pool_size'])))
+
+config.nn_config.layer7['params']['units'] = int(config.nn_config.layer7['params']['units'])
+
+config.nn_config.layer8['params']['units'] = int(config.nn_config.layer8['params']['units'])
