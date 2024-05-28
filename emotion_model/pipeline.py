@@ -3,8 +3,6 @@ import keras
 from scikeras.wrappers import KerasClassifier
 from emotion_model.config.core import config
 from emotion_model.utils.utils import load_obj
-# from config.core import config
-# from utils.utils import load_obj
 
 def create_model():
     model = keras.Sequential()

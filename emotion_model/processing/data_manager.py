@@ -1,5 +1,4 @@
 import typing as t
-from pathlib import Path
 import numpy as np
 import os
 import joblib
@@ -9,14 +8,15 @@ from sklearn.pipeline import Pipeline
 from emotion_model import __version__ as _version
 from emotion_model.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
 
-
 def solo_image_generator(path):
-    for filename in os.listdir(path):
-        img = cv2.imread(os.path.join(path, filename))
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  # Convert to RGB
-        img = img.astype('float32') / 255.0  # Normalize
-        img = img.flatten()
-        yield img
+    img = cv2.imread(path)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  # Convert to RGB
+    img = img.astype('float32') / 255.0  # Normalize
+    img = img.flatten()
+    img_arr = []
+    img_arr.append(img)
+    img_arr = np.array(img_arr)
+    return img_arr
 
 
 def image_generator(emotions):

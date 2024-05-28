@@ -4,10 +4,6 @@ package_name: emotion_model
 pipeline_name: emotion_model
 pipeline_save_file: emotion_model_output_v
 
-# Data Files
-# training_data_file: train.csv
-# test_data_file: test.csv
-
 # Data settings
 emotions:
   - surprise
@@ -84,14 +80,8 @@ layer7:
 layer8:
   class_name: keras.layers.Dense
   params:
-    units: 8
+    units: 5
     activation: softmax
-
-# Model compilation settings
-# optimizer: keras.optimizers.Adam
-# loss: keras.losses.SparseCategoricalCrossentropy
-# metrics:
-#   - keras.metrics.Accuracy
 
 optimizer: adam
 loss: sparse_categorical_crossentropy
