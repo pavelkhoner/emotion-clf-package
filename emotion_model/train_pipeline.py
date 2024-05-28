@@ -33,6 +33,11 @@ def run_training() -> None:
     X_train = X_train.reshape(*config.nn_config.image_reshape_params)
     X_test = X_test.reshape(*config.nn_config.image_reshape_params)
 
+    print(X_train.shape)
+    print(X_test.shape)
+    print(y_train.shape)
+    print(y_test.shape)
+
     emotion_pipe.fit(X_train, y_train)
 
     # Предсказание вероятностей принадлежности к каждому классу на обучающем наборе
