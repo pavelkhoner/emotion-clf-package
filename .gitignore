@@ -51,3 +51,15 @@ Lib/
 Scripts/
 pyvenv.cfg
 share/
+
+# Dataset
+dataset/fear/
+dataset/happy/
+dataset/neutral/
+dataset/sad/
+dataset/surprise/
+dataset/disgust/
+dataset/contempt/
+dataset/anger/
+*.jpg
+*.png

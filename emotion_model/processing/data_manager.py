@@ -10,20 +10,18 @@ from emotion_model import __version__ as _version
 from emotion_model.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
 
 
-def image_generator(DATASET_DIR, emotions, image_size):
+def image_generator(emotions):
     for index, emotion in enumerate(emotions):
         for filename in os.listdir(os.path.join(DATASET_DIR, emotion)):
             img = cv2.imread(os.path.join(DATASET_DIR, emotion, filename))
             img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  # Convert to RGB
-            img = img.astype('float32') / 255.0  # Normilize
+            img = img.astype('float32') / 255.0  # Normalize
             img = img.flatten()
             yield img, index
 
 
-def load_dataset(DATASET_DIR):
-    emotions = ['surprise', 'neutral', 'sad', 'happy', 'anger']
+def load_dataset(emotions, image_size):
     X, y = [], []
-    image_size = (96, 96)
     for img, label in image_generator(DATASET_DIR, emotions, image_size):
         X.append(img)
         y.append(label)

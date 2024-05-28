@@ -25,9 +25,10 @@ def run_training() -> None:
     logging.basicConfig(filename=log_path, level=logging.DEBUG)
 
     emotions = config.nn_config.emotions
+    image_size = tuple(config.nn_config.image_size)
 
-    X, y = load_dataset(DATASET_DIR)
-    input_shape = X[0].shape
+    X, y = load_dataset(emotions, image_size)
+    # input_shape = X[0].shape
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=config.nn_config.test_size,
                                                         random_state=config.nn_config.random_state)
     # X_train = X_train.reshape(-1, 96, 96, 1)
