@@ -36,9 +36,6 @@ def create_model():
     model.compile(optimizer=config.nn_config.optimizer, loss=config.nn_config.loss, metrics=config.nn_config.metrics)
     return model
 
-print(config.nn_config.layer1['class_name'])
-k = create_model()
-k.summary()
 clf = KerasClassifier(build_fn=create_model, epochs=config.nn_config.epochs, batch_size=config.nn_config.batch_size, verbose=0)
 
 emotion_pipe = Pipeline(
