@@ -10,6 +10,15 @@ from emotion_model import __version__ as _version
 from emotion_model.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
 
 
+def solo_image_generator(path):
+    for filename in os.listdir(path):
+        img = cv2.imread(os.path.join(path, filename))
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  # Convert to RGB
+        img = img.astype('float32') / 255.0  # Normalize
+        img = img.flatten()
+        yield img
+
+
 def image_generator(emotions):
     for index, emotion in enumerate(emotions):
         for filename in os.listdir(os.path.join(DATASET_DIR, emotion)):
