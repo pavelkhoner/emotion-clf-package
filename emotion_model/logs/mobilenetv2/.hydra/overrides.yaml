@@ -1,4 +1,0 @@
-- trainer.trainer_params.devices=1
-- optimizer=Adam
-- scheduler=None
-- model.model_name=mobilenetv2_140

@@ -4,11 +4,11 @@ from typing import List
 from setuptools import find_packages, setup
 
 # Package meta-data.
-NAME = "fer-pytorch"
-DESCRIPTION = "Facial Expression Recognition package implemented in Pytorch."
-URL = "https://github.com/Emilien-mipt/fer-pytorch"
-EMAIL = "emin.tagiev@phystech.edu"
-AUTHOR = "Emin Tagiev"
+NAME = "emotion-model"
+DESCRIPTION = "Emotion recognition package made with keras."
+URL = "https://github.com/Ilyaant/emotion-clf-package"
+EMAIL = "m1908142@edu.misis.ru"
+AUTHOR = "Ilya Antonov & Paul Khoner"
 REQUIRES_PYTHON = ">=3.6.0"
 
 long_description = DESCRIPTION
@@ -17,7 +17,7 @@ long_description = DESCRIPTION
 about = {}
 ROOT_DIR = Path(__file__).resolve().parent
 REQUIREMENTS_DIR = ROOT_DIR / "requirements"
-PACKAGE_DIR = ROOT_DIR / "fer_pytorch"
+PACKAGE_DIR = ROOT_DIR / "emotion_model"
 
 with open(PACKAGE_DIR / "VERSION") as f:
     _version = f.read().strip()
@@ -46,7 +46,7 @@ setup(
     python_requires=REQUIRES_PYTHON,
     url=URL,
     packages=find_packages(exclude=("tests",)),
-    package_data={"fer_pytorch": ["VERSION"]},
+    package_data={"emotion_model": ["VERSION"]},
     install_requires=list_reqs(),
     extras_require={},
     include_package_data=True,
