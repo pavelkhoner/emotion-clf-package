@@ -1,14 +1,12 @@
 import logging
 from pathlib import Path
 
-from config.core import LOG_DIR, config
-from pipeline import emotion_pipe
-from processing.data_manager import load_dataset, save_pipeline
+from emotion_model.config.core import LOG_DIR, config
+from emotion_model.pipeline import emotion_pipe
+from emotion_model import __version__ as _version
+from emotion_model.processing.data_manager import load_dataset, save_pipeline
 from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
-
-from emotion_model import __version__ as _version
-from emotion_model.config.core import config
 
 
 def run_training() -> None:
