@@ -14,10 +14,11 @@ emotion_model.egg-info/dependency_links.txt
 emotion_model.egg-info/requires.txt
 emotion_model.egg-info/top_level.txt
 emotion_model/config/__init__.py
+emotion_model/config/config.yaml
 emotion_model/config/core.py
 emotion_model/processing/__init__.py
 emotion_model/processing/data_manager.py
-emotion_model/trained_models/emotion_model_output_v0.0.2.pkl
+emotion_model/trained_models/emotion_model_output_v0.0.4.pkl
 emotion_model/utils/__init__.py
 emotion_model/utils/utils.py
 requirements/requirements.txt
