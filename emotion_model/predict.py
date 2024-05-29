@@ -40,4 +40,4 @@ def make_prediction(
 
     return results
 
-# print(make_prediction('C:\\Users\\anton\\Desktop\\Documents\\emotion-clf-package\\emotion_model\\dataset\\neutral\\ffhq_18.png'))
+print(make_prediction('C:\\Users\\anton\\Desktop\\Documents\\emotion-clf-package\\emotion_model\\dataset\\neutral\\ffhq_18.png'))

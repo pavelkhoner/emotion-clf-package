@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: emotion-model
-Version: 0.0.1
+Version: 0.0.2
 Summary: Emotion recognition package made with keras.
 Home-page: https://github.com/Ilyaant/emotion-clf-package
 Author: Ilya Antonov & Paul Khoner
@@ -84,7 +84,7 @@ Requires-Dist: zipp==3.19.0
 Чтобы установить библиотеку, выполните:
 
 ```
-pip install titanic-model
+pip install emotion-model
 ```
 
 После этого сделайте вызов функции на вашем изображении, чтобы получить предсказание:
