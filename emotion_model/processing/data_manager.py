@@ -62,8 +62,8 @@ def load_pipeline(*, file_name: str) -> Pipeline:
 
     file_path = TRAINED_MODEL_DIR / file_name
     # trained_model = joblib.load(filename=file_path)
-    with open("filename.pkl", "rb") as f:
-        trained_model = pickle.load(file_path)
+    with open(file_path, "rb") as f:
+        trained_model = pickle.load(f)
     return trained_model
 
 
