@@ -70,8 +70,8 @@ def make_prediction_model(
     results: t.Dict[str, t.Any] = {
         "preds_ind": int(emotion_ind),
         "preds_name": str(emotion_dict[f'{emotion_ind}']),
-        # "probs": [float(np.max(prob)) for prob in probs],
-        "probs": probs,
+        "probs": [float(prob) for prob in probs[0]],
+        # "probs": probs,
         "version": _version,
         "errors": None
     }
