@@ -61,6 +61,9 @@ def load_pipeline(*, file_name: str) -> Pipeline:
 
     file_path = TRAINED_MODEL_DIR / file_name
     trained_model = joblib.load(filename=file_path)
+    print(f"+++++++++++++++++++++")
+    print(f"file_pat - {file_path}, trained_model - {trained_model}")
+    print(f"+++++++++++++++++++++")
     return trained_model
 
 
