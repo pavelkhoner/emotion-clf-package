@@ -4,6 +4,7 @@ import numpy as np
 from emotion_model import __version__ as _version
 from emotion_model.config.core import config
 from emotion_model.processing.data_manager import load_pipeline, solo_image_generator
+from pipeline import create_model
 
 pipeline_file_name = f"{config.app_config.pipeline_save_file}{_version}.pkl"
 _emotion_pipe = load_pipeline(file_name=pipeline_file_name)

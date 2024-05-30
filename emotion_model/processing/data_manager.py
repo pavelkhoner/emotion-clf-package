@@ -4,6 +4,7 @@ import os
 import joblib
 import cv2
 from sklearn.pipeline import Pipeline
+from pipeline import create_model
 
 from emotion_model import __version__ as _version
 from emotion_model.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
