@@ -65,6 +65,7 @@ def run_training_model() -> None:
     emotion_clf.fit(X_train, y_train, epochs=config.nn_config.epochs,
                       batch_size=config.nn_config.batch_size)
 
+    save_model(model_to_persist=emotion_clf)
     # Предсказание вероятностей принадлежности к каждому классу на обучающем наборе
     class_ = emotion_clf.predict(X_train)
 
@@ -81,7 +82,7 @@ def run_training_model() -> None:
     logging.info(f"test metrics: {classification_report(y_test, class_, target_names=emotions)}")
 
     # persist trained model
-    save_model(model_to_persist=emotion_clf)
+    # save_model(model_to_persist=emotion_clf)
 
 
 if __name__ == "__main__":
