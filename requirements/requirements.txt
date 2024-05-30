@@ -14,7 +14,8 @@ h5py==3.11.0
 idna==3.7
 importlib-metadata==7.1.0
 importlib-resources==6.4.0
-joblib==1.4.2
+# joblib==1.4.2
+joblib>=1.0.1,<1.1.0
 keras==3.3.3
 kiwisolver==1.4.5
 libclang==18.1.1
