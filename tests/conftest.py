@@ -8,4 +8,4 @@ TEST_IMAGE = ROOT / "tests/test_images/happy (12).png"
 @pytest.fixture()
 def path():
     print(TEST_IMAGE)
-    return TEST_IMAGE
+    return str(TEST_IMAGE)
