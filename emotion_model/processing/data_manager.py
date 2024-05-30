@@ -7,6 +7,7 @@ from sklearn.pipeline import Pipeline
 
 from emotion_model import __version__ as _version
 from emotion_model.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
+from emotion_model.pipeline import create_model
 
 
 def solo_image_generator(path):
