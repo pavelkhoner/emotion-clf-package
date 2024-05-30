@@ -31,6 +31,7 @@ opt-einsum==3.3.0
 optree==0.11.0
 packaging==24.0
 pillow==10.3.0
+pipeline==0.1.0
 protobuf==4.25.3
 pydantic==2.6.4
 pydantic-core==2.16.3
