@@ -68,7 +68,7 @@ def load_pipeline(*, file_name: str) -> Pipeline:
     print(f"file_path - {file_path}")
     print(f"+++++++++++++++++++++")
     print(f"FILES ON DIR")
-    file_name = "D:/a/emotion-clf-package/emotion_model/trained_models/"
+    file_name = "D:/a/emotion-clf-package/emotion-clf-package/emotion_model/trained_models/"
     print(f"{os.listdir(file_name)}")
     print(f"==============================================")
     trained_model = joblib.load(filename=file_path)
