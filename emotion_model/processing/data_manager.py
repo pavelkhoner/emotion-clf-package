@@ -4,7 +4,6 @@ import os
 import joblib
 import cv2
 from sklearn.pipeline import Pipeline
-from pipeline import create_model
 
 from emotion_model import __version__ as _version
 from emotion_model.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
@@ -61,17 +60,6 @@ def load_pipeline(*, file_name: str) -> Pipeline:
     """Load a persisted pipeline."""
 
     file_path = TRAINED_MODEL_DIR / file_name
-    print(f"+++++++++++++++++++++")
-    print(f"file_path - {file_path}")
-    print(f"+++++++++++++++++++++")
-    file_path = 'D:\\a\\emotion-clf-package\\emotion-clf-package\\emotion_model\\trained_models\\emotion_model_output_v0.0.4.pkl'
-    print(f"+++++++++++++++++++++")
-    print(f"file_path - {file_path}")
-    print(f"+++++++++++++++++++++")
-    print(f"FILES ON DIR")
-    file_name = "D:/a/emotion-clf-package/emotion-clf-package/emotion_model/trained_models/"
-    print(f"{os.listdir(file_name)}")
-    print(f"==============================================")
     trained_model = joblib.load(filename=file_path)
     return trained_model
 

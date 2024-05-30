@@ -1,5 +1,4 @@
 from emotion_model.predict import make_prediction
-from pipeline import create_model
 
 
 def test_make_prediction(path):
