@@ -1,8 +1,5 @@
 # Package Overview
 package_name: emotion_model
-
-pipeline_name: emotion_model
-pipeline_save_file: emotion_model_output_v
 clf_save_file: emotion_clf_output_v
 
 # Data settings

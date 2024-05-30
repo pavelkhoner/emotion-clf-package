@@ -21,7 +21,6 @@ class AppConfig(BaseModel):
     """
 
     package_name: str
-    pipeline_save_file: str
     clf_save_file: str
 
 
