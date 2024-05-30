@@ -1,4 +1,4 @@
-from emotion_model.predict import make_prediction, make_prediction_model
+from emotion_model.predict import make_prediction_model
 
 
 # def test_make_prediction(path):
