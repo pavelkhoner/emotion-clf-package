@@ -62,3 +62,6 @@ emotion_model/dataset/neutral/*.png
 emotion_model/dataset/sad/*.png
 emotion_model/dataset/surprise/*.png
 emotion_model/dataset/anger/*.png
+
+# tox
+.tox

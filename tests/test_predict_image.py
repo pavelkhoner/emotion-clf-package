@@ -1,5 +1,6 @@
 from emotion_model.predict import make_prediction
 
+
 def test_make_prediction(path):
     expected_len = 5
 

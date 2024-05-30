@@ -96,18 +96,24 @@ def create_and_validate_config(parsed_config: YAML = None) -> Config:
 config = create_and_validate_config()
 
 config.nn_config.layer1['params']['filters'] = int(config.nn_config.layer1['params']['filters'])
-config.nn_config.layer1['params']['kernel_size'] = tuple(map(int, list(config.nn_config.layer1['params']['kernel_size'])))
-config.nn_config.layer1['params']['input_shape'] = tuple(map(int, list(config.nn_config.layer1['params']['input_shape'])))
+config.nn_config.layer1['params']['kernel_size'] = tuple(
+    map(int, list(config.nn_config.layer1['params']['kernel_size'])))
+config.nn_config.layer1['params']['input_shape'] = tuple(
+    map(int, list(config.nn_config.layer1['params']['input_shape'])))
 
 config.nn_config.layer2['params']['filters'] = int(config.nn_config.layer2['params']['filters'])
-config.nn_config.layer2['params']['kernel_size'] = tuple(map(int, list(config.nn_config.layer2['params']['kernel_size'])))
+config.nn_config.layer2['params']['kernel_size'] = tuple(
+    map(int, list(config.nn_config.layer2['params']['kernel_size'])))
 
-config.nn_config.layer3['params']['pool_size'] = tuple(map(int, list(config.nn_config.layer3['params']['pool_size'])))
+config.nn_config.layer3['params']['pool_size'] = tuple(
+    map(int, list(config.nn_config.layer3['params']['pool_size'])))
 
 config.nn_config.layer4['params']['filters'] = int(config.nn_config.layer4['params']['filters'])
-config.nn_config.layer4['params']['kernel_size'] = tuple(map(int, list(config.nn_config.layer4['params']['kernel_size'])))
+config.nn_config.layer4['params']['kernel_size'] = tuple(
+    map(int, list(config.nn_config.layer4['params']['kernel_size'])))
 
-config.nn_config.layer5['params']['pool_size'] = tuple(map(int, list(config.nn_config.layer5['params']['pool_size'])))
+config.nn_config.layer5['params']['pool_size'] = tuple(
+    map(int, list(config.nn_config.layer5['params']['pool_size'])))
 
 config.nn_config.layer7['params']['units'] = int(config.nn_config.layer7['params']['units'])
 

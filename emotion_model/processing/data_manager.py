@@ -8,6 +8,7 @@ from sklearn.pipeline import Pipeline
 from emotion_model import __version__ as _version
 from emotion_model.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
 
+
 def solo_image_generator(path):
     img = cv2.imread(path)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  # Convert to RGB
@@ -37,7 +38,6 @@ def load_dataset(emotions):
     X = np.array(X)
     y = np.array(y)
     return X, y
-
 
 
 def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:

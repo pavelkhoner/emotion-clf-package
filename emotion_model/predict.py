@@ -8,6 +8,7 @@ from emotion_model.processing.data_manager import load_pipeline, solo_image_gene
 pipeline_file_name = f"{config.app_config.pipeline_save_file}{_version}.pkl"
 _emotion_pipe = load_pipeline(file_name=pipeline_file_name)
 
+
 def make_prediction(
     image_path: str
 ) -> dict:
@@ -40,4 +41,5 @@ def make_prediction(
 
     return results
 
-print(make_prediction('C:\\Users\\anton\\Desktop\\Documents\\emotion-clf-package\\emotion_model\\dataset\\neutral\\ffhq_18.png'))
+
+# print(make_prediction('C:\\Users\\anton\\Desktop\\Documents\\emotion-clf-package\\emotion_model\\dataset\\neutral\\ffhq_18.png'))
