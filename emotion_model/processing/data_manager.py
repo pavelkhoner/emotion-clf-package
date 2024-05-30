@@ -63,7 +63,7 @@ def load_pipeline(*, file_name: str) -> Pipeline:
     print(f"+++++++++++++++++++++")
     print(f"file_path - {file_path}")
     print(f"+++++++++++++++++++++")
-    file_path = "D:\\a\\emotion-clf-package\\emotion_model\\trained_models\\emotion_model_output_v0.0.4.pkl"
+    file_path = 'D:\\a\\emotion-clf-package\\emotion_model\\trained_models\\emotion_model_output_v0.0.4.pkl'
     print(f"+++++++++++++++++++++")
     print(f"file_path - {file_path}")
     print(f"+++++++++++++++++++++")
