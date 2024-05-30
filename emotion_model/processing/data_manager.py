@@ -2,12 +2,12 @@ import typing as t
 import numpy as np
 import os
 import joblib
+import pickle
 import cv2
 from sklearn.pipeline import Pipeline
 
 from emotion_model import __version__ as _version
 from emotion_model.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
-from emotion_model.pipeline import create_model
 
 
 def solo_image_generator(path):
@@ -61,7 +61,9 @@ def load_pipeline(*, file_name: str) -> Pipeline:
     """Load a persisted pipeline."""
 
     file_path = TRAINED_MODEL_DIR / file_name
-    trained_model = joblib.load(filename=file_path)
+    # trained_model = joblib.load(filename=file_path)
+    with open("filename.pkl", "rb") as f:
+        trained_model = pickle.load(file_path)
     return trained_model
 
 
