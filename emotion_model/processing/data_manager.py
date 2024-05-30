@@ -4,6 +4,7 @@ import os
 import joblib
 import cv2
 from sklearn.pipeline import Pipeline
+from keras import Sequential
 
 from emotion_model import __version__ as _version
 from emotion_model.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
@@ -56,7 +57,30 @@ def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
     joblib.dump(pipeline_to_persist, save_path)
 
 
+def save_model(*, model_to_persist: Sequential) -> None:
+    """Persist the pipeline.
+    Saves the versioned model, and overwrites any previous
+    saved models. This ensures that when the package is
+    published, there is only one trained model that can be
+    called, and we know exactly how it was built.
+    """
+
+    # Prepare versioned save file name
+    save_file_name = f"{config.app_config.clf_save_file}{_version}.pkl"
+    save_path = TRAINED_MODEL_DIR / save_file_name
+
+    # remove_old_pipelines(files_to_keep=[save_file_name])
+    joblib.dump(model_to_persist, save_path)
+
+
 def load_pipeline(*, file_name: str) -> Pipeline:
+    """Load a persisted pipeline."""
+
+    file_path = TRAINED_MODEL_DIR / file_name
+    trained_model = joblib.load(filename=file_path)
+    return trained_model
+
+def load_model(*, file_name: str) -> Sequential:
     """Load a persisted pipeline."""
 
     file_path = TRAINED_MODEL_DIR / file_name

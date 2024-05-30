@@ -44,3 +44,5 @@ emotion_pipe = Pipeline(
         ('clf', clf)
     ]
 )
+
+emotion_clf = create_model()
