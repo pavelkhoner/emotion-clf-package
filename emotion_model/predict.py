@@ -3,7 +3,7 @@ import numpy as np
 
 from emotion_model import __version__ as _version
 from emotion_model.config.core import config
-from emotion_model.processing.data_manager import load_pipeline, solo_image_generator, load_model
+from emotion_model.processing.data_manager import solo_image_generator, load_model
 
 pipeline_file_name = f"{config.app_config.pipeline_save_file}{_version}.pkl"
 model_file_name = f"{config.app_config.clf_save_file}{_version}.pkl"
