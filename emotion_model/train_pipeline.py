@@ -11,7 +11,7 @@ from sklearn.model_selection import train_test_split
 
 def run_training() -> None:
     """Train the model."""
-    # Update logs
+
     log_path = Path(f"{LOG_DIR}/log_{_version}.log")
     if Path.exists(log_path):
         log_path.unlink()
@@ -29,7 +29,7 @@ def run_training() -> None:
                       batch_size=config.nn_config.batch_size)
 
     save_model(model_to_persist=emotion_clf)
-    # Предсказание вероятностей принадлежности к каждому классу на обучающем наборе
+
     class_ = emotion_clf.predict(X_train)
 
     print(classification_report(y_train, class_, target_names=emotions))

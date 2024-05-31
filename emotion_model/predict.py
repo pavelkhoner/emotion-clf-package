@@ -13,13 +13,11 @@ _emotion_clf = load_model(file_name=model_file_name)
 def make_prediction(
     image_path: str
 ) -> dict:
-    """Make a prediction using a saved model pipeline."""
+    """Make a prediction using a saved model."""
 
-    # Загрузка и предобработка изображения
     image = solo_image_generator(image_path)
     image = image.reshape(*config.nn_config.image_reshape_params)
 
-    # Предсказание с использованием модели
     probs = _emotion_clf.predict(image)
     emotion_ind = np.argmax(probs)
 
@@ -31,7 +29,6 @@ def make_prediction(
         '4': 'anger'
     }
 
-    # Формирование словаря с результатами
     results: t.Dict[str, t.Any] = {
         "preds_ind": int(emotion_ind),
         "preds_name": str(emotion_dict[f'{emotion_ind}']),
