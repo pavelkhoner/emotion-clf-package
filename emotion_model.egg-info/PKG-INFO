@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: emotion-model
-Version: 0.0.4
+Version: 0.0.5
 Summary: Emotion recognition package made with keras.
 Home-page: https://github.com/Ilyaant/emotion-clf-package
 Author: Ilya Antonov & Paul Khoner
@@ -50,6 +50,7 @@ Requires-Dist: opt-einsum==3.3.0
 Requires-Dist: optree==0.11.0
 Requires-Dist: packaging==24.0
 Requires-Dist: pillow==10.3.0
+Requires-Dist: pipeline==0.0.3
 Requires-Dist: protobuf==4.25.3
 Requires-Dist: pydantic==2.6.4
 Requires-Dist: pydantic-core==2.16.3
