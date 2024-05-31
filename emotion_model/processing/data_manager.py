@@ -11,7 +11,7 @@ from emotion_model import __version__ as _version
 from emotion_model.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
 
 
-def solo_image_generator(path: str) -> np.array:
+def solo_image_generator(path: str) -> np.typing.NDArray:
     """Helper function to load an image"""
 
     img = cv2.imread(path)
@@ -24,7 +24,7 @@ def solo_image_generator(path: str) -> np.array:
     return img_arr
 
 
-def image_generator(emotions: list[str]) -> Generator[np.array, int, None]:
+def image_generator(emotions: list[str]) -> Generator[np.typing.NDArray, int, None]:
     """Image loading and initial preprocessing"""
 
     for index, emotion in enumerate(emotions):
@@ -36,7 +36,7 @@ def image_generator(emotions: list[str]) -> Generator[np.array, int, None]:
             yield img, index
 
 
-def load_dataset(emotions: list[str]) -> tuple[np.array, np.array]:
+def load_dataset(emotions: list[str]) -> tuple[np.typing.NDArray, np.typing.NDArray]:
     """Load the dataset."""
 
     X, y = [], []
